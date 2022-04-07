@@ -8,7 +8,11 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+<<<<<<< HEAD
 added to cloned 
+=======
+Could not finish it  all
+>>>>>>> d66b6830263aacd0a8c7389bc6fd62d511711f4d
 ```{r cars}
 summary(cars)
 ```
