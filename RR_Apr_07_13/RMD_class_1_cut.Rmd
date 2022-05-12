@@ -69,68 +69,6 @@ Subscripts can be done like so: `H~2~O` H~2~O
 #### Header 4
 
 `##### Header 5`
-This article is about the television series. For its pilot episode, see The Sopranos (The Sopranos episode). For the unrelated novel by Alan Warner, see The Sopranos (novel). For the female classical voice type, see soprano.
-The Sopranos
-Sopranos titlescreen.png
-Genre	
-Crime drama
-Serial drama
-Created by	David Chase
-Starring	
-James Gandolfini
-Lorraine Bracco
-Edie Falco
-Michael Imperioli
-Dominic Chianese
-Steven Van Zandt
-Tony Sirico
-Robert Iler
-Jamie-Lynn Sigler
-Opening theme	"Woke Up This Morning (Chosen One Mix)" by Alabama 3
-Ending theme	Various
-Country of origin	United States
-Original language	English
-No. of seasons	6
-No. of episodes	86 (list of episodes)
-Production
-Executive producers	
-David Chase
-Brad Grey
-Robin Green
-Mitchell Burgess
-Ilene S. Landress
-Terence Winter
-Matthew Weiner
-Production locations	
-New Jersey
-Silvercup Studios, New York City
-Cinematography	
-Alik Sakharov
-Phil Abraham
-Editors	
-Sidney Wolinsky
-William B. Stich
-Conrad M. Gonzalez
-Camera setup	Single camera[1]
-Running time	43–75 minutes
-Production companies	
-Chase Films
-Brad Grey Television
-HBO Entertainment
-Distributor	Warner Bros. Television Distribution
-Release
-Original network	HBO
-Picture format	NTSC
-Audio format	Stereo
-Original release	January 10, 1999 –
-June 10, 2007
-The Sopranos is an American crime drama television series created by David Chase. The story revolves around Tony Soprano (James Gandolfini), a New Jersey-based Italian-American mobster, portraying the difficulties that he faces as he tries to balance his family life with his role as the leader of a criminal organization. These are explored during his therapy sessions with psychiatrist Jennifer Melfi (Lorraine Bracco). The series features Tony's family members, mafia colleagues, and rivals in prominent roles—most notably his wife Carmela (Edie Falco) and his protégé/distant cousin Christopher Moltisanti (Michael Imperioli).
-
-The pilot was ordered in 1997, and the show premiered on HBO on January 10, 1999. The series ran for six seasons totaling 86 episodes until June 10, 2007. Broadcast syndication followed in the U.S. and internationally.[2] The Sopranos was produced by HBO, Chase Films, and Brad Grey Television. It was primarily filmed at Silvercup Studios in Long Island City in Queens, New York City and on location in New Jersey. The executive producers throughout the show's run were David Chase, Brad Grey, Robin Green, Mitchell Burgess, Ilene S. Landress, Terence Winter, and Matthew Weiner.
-
-The Sopranos is widely regarded as one of the greatest television series of all time.[3][4][5][6][7] The series won a multitude of awards, including Peabody Awards for its first two seasons, 21 Primetime Emmy Awards, and five Golden Globe Awards. It has been the subject of critical analysis, controversy, and parody, and has spawned books,[8] a video game,[9] soundtrack albums, podcasts and assorted merchandise.[10] Several members of the show's cast and crew were largely unknown to the public but have since had successful careers.[11][12][13][14] In 2013, the Writers Guild of America named The Sopranos the best-written TV series of all time,[15] while TV Guide ranked it the best television series of all time.[16] In 2016, the series ranked first in the Rolling Stone list of the 100 greatest TV shows of all time.[7]
-
-In March 2018, New Line Cinema announced that they had purchased a film detailing The Sopranos background story, set in the 1960s and 1970s during, and in the wake of, the Newark riots. The 2021 film, The Many Saints of Newark, is written by David Chase and Lawrence Konner and directed by Alan Taylor.[17][18] The film also stars Michael Gandolfini, the son of Tony Soprano actor James Gandolfini, as a young Tony Soprano.[19]
 
 ##### Header 5
 
@@ -227,23 +165,6 @@ plot(pressure)
 
 ```
 
-You can also use Python within the RMarkdown document like so:
-
-```{python}
-import pandas
-flights = pandas.read_csv("../Data/flights.csv")
-flights = flights[flights['dest'] == "ORD"]
-flights = flights[['carrier', 'dep_delay', 'arr_delay']]
-flights = flights.dropna()
-```
-
-```{r}
-library(ggplot2)
-ggplot(py$flights, aes(carrier, arr_delay)) + geom_point() + geom_jitter()
-
-cat("Example from: https://rstudio.github.io/reticulate/articles/r_markdown.html")
-```
-
 And a nice table alternative -> `kable` from the `knitr` package.
 
 ```{r}
@@ -284,7 +205,7 @@ We have previously set a typical width to `r typical_width` and the typical heig
 
 ## Conditional execution with `eval`
 
-(`is.weekend` comes from the `chron` package)
+(`is.weekend` comes from the `chrono` package)
 
 ```{r, eval=is.weekend(Sys.Date())}
 cat("It's the weekend! :)")
@@ -294,21 +215,8 @@ cat("It's the weekend! :)")
 cat("It's not the weekend! :(")
 ```
 
-## Handling errors
-
-```{r, error=TRUE}
-543 + "clearly a text and not a number"
-```
-
-By default RMarkdown stops after encountering an error. We can tell it to continue.
-
 ## Caching results that take long to compute
 
-```{r slow_chunk, cache=TRUE}
-Sys.sleep(10)
-a <- 4
-a
-```
 The chunk gets reevaluated if anything changes within the chunk. **Make sure you know what you're doing when caching**. 
 
 We can use `cache.extra =` to specify additional conditions for cache invalidation (i.e. to repeat the calculations), e.g.:
@@ -381,12 +289,6 @@ plot(cars)
 ```
 
 ### Hide the results with `results='hide'`
-
-```{r, results='hide'}
-
-a*typical_height*typical_width
-  
-```
 
 ### Generate Markdown content with R code with `results='asis'`
 
